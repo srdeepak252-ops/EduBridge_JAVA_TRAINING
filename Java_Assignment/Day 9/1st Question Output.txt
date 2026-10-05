@@ -1,0 +1,30 @@
+//  Day 9  Question 1  Create a table with constraints
+
+mysql> USE college;
+Database changed
+mysql>  CREATE TABLE fees (
+    -> fee_id INT PRIMARY KEY AUTO_INCREMENT,
+    -> student_id INT NOT NULL,
+    -> amount INT NOT NULL CHECK (amount > 0),
+    -> paid_on DATE,
+    -> FOREIGN KEY (student_id) REFERENCES
+    -> students(student_id) );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql>  INSERT INTO fees (student_id, amount, paid_on)
+    -> VALUES
+    -> (1, 15000, '2026-06-05'),
+    -> (2, 12000, '2026-06-07'),
+    -> (1, 8000, '2026-07-01');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM fees;
++--------+------------+--------+------------+
+| fee_id | student_id | amount | paid_on    |
++--------+------------+--------+------------+
+|      1 |          1 |  15000 | 2026-06-05 |
+|      2 |          2 |  12000 | 2026-06-07 |
+|      3 |          1 |   8000 | 2026-07-01 |
++--------+------------+--------+------------+
+3 rows in set (0.00 sec)

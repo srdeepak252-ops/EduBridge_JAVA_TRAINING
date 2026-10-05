@@ -1,0 +1,23 @@
+//   Day 9  7th Question   Report with a 3-table JOIN
+
+mysql> SELECT s.name, c.title, e.marks
+    -> FROM enrollments e
+    -> JOIN students s ON e.student_id = s.student_id
+    -> JOIN courses c ON e.course_id = c.course_id
+    -> WHERE e.marks IS NOT NULL
+    -> ORDER BY e.marks DESC;
++--------------+-----------------+-------+
+| name         | title           | marks |
++--------------+-----------------+-------+
+| Priya Nair   | Web Development |    95 |
+| Diya Patel   | SQL & MySQL     |    92 |
+| Diya Patel   | Core Java       |    88 |
+| Rohan Verma  | Core Java       |    83 |
+| Aarav Sharma | Python          |    81 |
+| Aarav Sharma | Core Java       |    76 |
+| Sneha Iyer   | SQL & MySQL     |    71 |
+| Rohan Verma  | SQL & MySQL     |    65 |
+| Priya Nair   | Core Java       |    58 |
+| Vikram Singh | Web Development |    49 |
++--------------+-----------------+-------+
+10 rows in set (0.00 sec)

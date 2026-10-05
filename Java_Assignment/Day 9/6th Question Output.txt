@@ -1,0 +1,19 @@
+//   Day 9   6th Question  Course statistics with HAVING
+
+mysql> SELECT course_id,
+    -> COUNT(marks)          AS marked,
+    -> ROUND(AVG(marks), 1)  AS avg_marks,
+    ->  MAX(marks)            AS highest,
+    ->  MIN(marks)            AS lowest
+    -> FROM enrollments
+    -> GROUP BY course_id
+    -> HAVING COUNT(marks) >= 2
+    -> ORDER BY course_id;
++-----------+--------+-----------+---------+--------+
+| course_id | marked | avg_marks | highest | lowest |
++-----------+--------+-----------+---------+--------+
+|       101 |      4 |      76.3 |      88 |     58 |
+|       102 |      3 |      76.0 |      92 |     65 |
+|       104 |      2 |      72.0 |      95 |     49 |
++-----------+--------+-----------+---------+--------+
+3 rows in set (0.01 sec)

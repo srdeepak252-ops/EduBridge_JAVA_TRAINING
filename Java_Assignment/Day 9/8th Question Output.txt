@@ -1,0 +1,23 @@
+//   Day 9  8th Question   Courses per student (LEFT JOIN) 
+
+mysql> SELECT s.name, COUNT(e.enroll_id) AS courses
+    -> FROM students s
+    -> LEFT JOIN enrollments e ON s.student_id = e.student_id
+    -> GROUP BY s.student_id, s.name
+    -> ORDER BY courses DESC, s.name;
++---------------+---------+
+| name          | courses |
++---------------+---------+
+| Aarav Sharma  |       2 |
+| Diya Patel    |       2 |
+| Priya Nair    |       2 |
+| Rohan Verma   |       2 |
+| Karthik Reddy |       1 |
+| Sneha Iyer    |       1 |
+| Vikram Singh  |       1 |
+| Ananya Das    |       0 |
+| Harsh Raj     |       0 |
+| Rahul Kumar   |       0 |
+| Suresh Gowda  |       0 |
++---------------+---------+
+11 rows in set (0.00 sec)

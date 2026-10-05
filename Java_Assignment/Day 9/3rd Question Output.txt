@@ -1,0 +1,17 @@
+//  Day 9  3rd Question   Pattern matching with LIKE and IN
+
+mysql> SELECT name, city
+    -> FROM students
+    -> WHERE name LIKE 'A%'
+    ->  OR city IN ('Chennai', 'Delhi')
+    -> ORDER BY name;
++--------------+-----------+
+| name         | city      |
++--------------+-----------+
+| Aarav Sharma | Hyderabad |
+| Ananya Das   | Chennai   |
+| Priya Nair   | Chennai   |
+| Suresh Gowda | Chennai   |
+| Vikram Singh | Delhi     |
++--------------+-----------+
+5 rows in set (0.00 sec)

@@ -1,0 +1,18 @@
+//  Day 9  2nd Question  Filter and sort
+
+mysql>  SELECT name, city, age
+    -> FROM students
+    -> WHERE age > 20 AND city <> 'Hyderabad'
+    -> ORDER BY age DESC;
++--------------+-----------+------+
+| name         | city      | age  |
++--------------+-----------+------+
+| Vikram Singh | Delhi     |   25 |
+| Rahul Kumar  | Bangalore |   23 |
+| Harsh Raj    | Bihar     |   23 |
+| Priya Nair   | Chennai   |   22 |
+| Ananya Das   | Chennai   |   22 |
+| Sneha Iyer   | Bangalore |   21 |
+| Suresh Gowda | Chennai   |   21 |
++--------------+-----------+------+
+7 rows in set (0.00 sec)
