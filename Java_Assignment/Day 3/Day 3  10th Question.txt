@@ -1,0 +1,42 @@
+Day 3  10th Question   draw on paper:
+
+(a) the recursion tree for fib(4) , and count the total number of calls;
+Ans->  I'm assuming the usual definition where fib(n) = fib(n-1) + fib(n-2), with base cases fib(0) = 0 and fib(1) = 1.
+
+             Recursion tree for fib(4)
+
+                    fib(4)
+                  /        \
+             fib(3)        fib(2)
+            /      \       /     \
+       fib(2)    fib(1) fib(1)  fib(0)
+       /     \
+   fib(1)  fib(0)
+
+         Counting the calls level by level:
+         1 call of fib(4), 1 of fib(3), 2 of fib(2), 3 of fib(1), and 2 of fib(0). 
+         That is 1 + 1 + 2 + 3 + 2 = 9 calls. Notice that fib(2) is computed twice and fib(1) three times.
+         This repeated work is why recursive Fibonacci becomes very slow for larger n.
+
+(b) the call stack step by step for factorial(3) , showing each frame being pushed and popped with its return value;
+Ans->  Each line is one step, and the stack is shown with the top on the right:
+
+       1. Call  factorial(3)   stack: [f(3)]
+       2. Call  factorial(2)   stack: [f(3), f(2)]
+       3. Call  factorial(1)   stack: [f(3), f(2), f(1)]
+       4. f(1) hits the base case, returns 1 and is popped
+                        stack: [f(3), f(2)]
+       5. f(2) computes 2 * 1 = 2, returns 2 and is popped
+                        stack: [f(3)]
+       6. f(3) computes 3 * 2 = 6, returns 6 and is popped
+                        stack: []
+
+       Steps 1 to 3 are the pushes, where the stack grows and each frame waits for the call below it.
+       Steps 4 to 6 are the pops, where the stack unwinds and each return value is passed down to the caller.
+       The final answer is 6.
+
+(c) what happens if the base case is removed from factorial , and the name of the error.
+Ans->  Without the base case, nothing ever stops the recursion. The calls would go factorial(3), factorial(2), 
+       factorial(1), factorial(0), factorial(-1), and so on forever, and each call adds a new frame to the call stack.
+       Eventually the stack memory runs out and Java throws a StackOverflowError (java.lang.StackOverflowError),
+       and the program crashes.

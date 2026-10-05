@@ -1,0 +1,37 @@
+Day 1   10th  Question       How Java works:
+
+
+Answer in your own words (3–4 lines each):
+
+(a) What are JDK, JRE and JVM, and how are they related?
+Ans-> The JVM (Java Virtual Machine) is the engine that actually runs Java bytecode on your computer.
+      The JRE (Java Runtime Environment) is the JVM plus the standard class libraries needed to run Java 
+      programs. The JDK (Java Development Kit) is the JRE plus development tools such as the compiler (javac),
+      debugger and documentation generator. So the relationship is nested: JDK contains JRE, and JRE 
+      contains JVM. A user who only wants to run programs needs the JRE, while a programmer needs the JDK.
+
+(b) What happens when you run javac Hello.java and then java Hello ?
+Ans-> javac Hello.java runs the compiler, which checks the source code for syntax errors and translates it 
+      into bytecode, saved as Hello.class. This bytecode is not machine code for any particular processor. 
+      Then java Hello starts the JVM, which loads Hello.class, verifies the bytecode is safe, and executes it by
+      interpreting it or compiling the hot parts to machine code using the JIT compiler. The output then appears 
+      on the console.
+
+(c) Give any three differences between Java and C++.
+Ans->  (i)   Java has no pointers in the C/C++ sense, which makes it safer, while C++ allows direct 
+             pointer manipulation.
+       (ii)  Java manages memory automatically through garbage collection, whereas C++ requires the
+             programmer to free memory manually using delete or destructors.
+       (iii) Java does not support multiple inheritance of classes (it uses interfaces instead), 
+             while C++ allows a class to inherit from several classes.
+
+       Other valid differences: Java is compiled to bytecode and C++ directly to machine code, 
+                                Java has no operator overloading, and Java has no header files
+                                or preprocessor.
+
+(d) Why is Java called platform independent?
+Ans->  When Java source code is compiled, it becomes bytecode instead of machine code for one 
+       specific operating system or processor. That same .class file can run on any system that has a JVM,
+       whether Windows, Linux or macOS, because each platform has its own JVM that knows how to execute
+       the bytecode there. This is the idea behind "write once, run anywhere". Note that the JVM itself
+       is platform dependent, while the bytecode is what stays platform independent.
